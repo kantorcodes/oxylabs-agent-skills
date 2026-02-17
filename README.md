@@ -1,2 +1,29 @@
-# agent-skills
-Official Agent skills of Oxylabs products
+# Oxylabs Agent Skills
+
+Official agent skills for Oxylabs products. Each skill provides structured instructions that AI agents can use to interact with Oxylabs services.
+
+## Available Skills
+
+| Skill | Directory | Description |
+|-------|-----------|-------------|
+| Proxies | [`skills/proxies`](skills/proxies/SKILL.md) | Residential, Mobile, Datacenter, and ISP proxy network with geo-targeting, IP rotation, and session persistence |
+| Web Unblocker | [`skills/web-unblocker`](skills/web-unblocker/SKILL.md) | AI-powered proxy that handles fingerprinting, JavaScript rendering, CAPTCHAs, and anti-bot bypass automatically |
+| Web Scraper API | [`skills/web-scraper-api`](skills/web-scraper-api/SKILL.md) | Production-grade web scraping with structured JSON parsing for 40+ targets and geo-targeting |
+| Unblocking Browser | [`skills/unblocking-browser`](skills/unblocking-browser/SKILL.md) | Remote headless browsers via CDP (Playwright/Puppeteer) with built-in anti-detection and residential proxies |
+| Video Data | [`skills/video-data`](skills/video-data/SKILL.md) | YouTube data extraction (metadata, transcripts, search, channels) and high-bandwidth proxy video downloads |
+
+## Configuration
+
+All skills authenticate via environment variables defined in a `.env` file.
+
+| Variable | Used By | Description |
+|----------|---------|-------------|
+| `OXY_DC_USERNAME` | Proxies | Proxy service username |
+| `OXY_DC_PASSWORD` | Proxies | Proxy service password |
+| `OXYLABS_USERNAME` | Web Unblocker | Web Unblocker username |
+| `OXYLABS_PASSWORD` | Web Unblocker | Web Unblocker password |
+| `OXY_WSA_USERNAME` | Web Scraper API, Video Data | Web Scraper API username |
+| `OXY_WSA_PASSWORD` | Web Scraper API, Video Data | Web Scraper API password |
+| `OXY_UNBLOCKER_USERNAME` | Unblocking Browser | Unblocking Browser username |
+| `OXY_UNBLOCKER_PASSWORD` | Unblocking Browser | Unblocking Browser password |
+| `OXYLABS_HB_ENDPOINT` | Video Data | Dedicated high-bandwidth proxy endpoint (for video downloads) |
