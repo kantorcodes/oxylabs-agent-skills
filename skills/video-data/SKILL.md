@@ -115,7 +115,7 @@ curl -x "http://USERNAME-test:PASSWORD@YOUR_ENDPOINT:60000" \
 
 **With session rotation (different IP per download):**
 ```bash
-yt-dlp --proxy "http://USERNAME-session123:PASSWORD@YOUR_ENDPOINT:60000" \
+yt-dlp --proxy "http://USERNAME-Random1Session2ID:PASSWORD@YOUR_ENDPOINT:60000" \
   "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
@@ -126,17 +126,17 @@ Change the session ID for each download to get a fresh IP.
 ```python
 import yt_dlp
 import os
-import random
+import uuid
 
 username = os.environ["OXY_WSA_USERNAME"]
 password = os.environ["OXY_WSA_PASSWORD"]
 endpoint = os.environ["OXY_HB_ENDPOINT"]  # Your dedicated endpoint
 
 # Random session for unique IP
-session = random.randint(10000, 99999)
+session_id = str(uuid.uuid4()).replace("-", "")
 
 ydl_opts = {
-    "proxy": f"http://{username}-{session}:{password}@{endpoint}:60000",
+    "proxy": f"http://{username}-{session_id}:{password}@{endpoint}:60000",
     "format": "best",
     "outtmpl": "%(title)s.%(ext)s"
 }

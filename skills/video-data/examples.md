@@ -228,13 +228,15 @@ yt-dlp --proxy $OXY_WSA_USERNAME-$((1 + RANDOM % 100000)):$OXY_WSA_PASSWORD@$OXY
 ```python
 import yt_dlp
 import os
+import uuid
 
 username = os.environ["OXY_WSA_USERNAME"]
 password = os.environ["OXY_WSA_PASSWORD"]
 endpoint = os.environ["OXYLABS_HB_ENDPOINT"]
+session_id = str(uuid.uuid4()).replace("-", "")
 
 ydl_opts = {
-    "proxy": f"http://{username}:{password}@{endpoint}:60000",
+    "proxy": f"http://{username}-{session_id}:{password}@{endpoint}:60000",
     "format": "best",
     "outtmpl": "downloads/%(title)s.%(ext)s"
 }
@@ -247,13 +249,15 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
 ```python
 import yt_dlp
 import os
+import uuid
 
 username = os.environ["OXY_WSA_USERNAME"]
 password = os.environ["OXY_WSA_PASSWORD"]
 endpoint = os.environ["OXYLABS_HB_ENDPOINT"]
+session_id = str(uuid.uuid4()).replace("-", "")
 
 ydl_opts = {
-    "proxy": f"http://{username}:{password}@{endpoint}:60000",
+    "proxy": f"http://{username}-{session_id}:{password}@{endpoint}:60000",
     "format": "bestaudio/best",
     "postprocessors": [{
         "key": "FFmpegExtractAudio",
@@ -271,11 +275,11 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
 ```python
 import yt_dlp
 import os
-import random
+import uuid
 
 username = os.environ["OXY_WSA_USERNAME"]
 password = os.environ["OXY_WSA_PASSWORD"]
-endpoint = os.environ["OXYLABS_HB_ENDPOINT"]
+endpoint = os.environ["OXY_HB_ENDPOINT"]
 
 video_urls = [
     "https://www.youtube.com/watch?v=VIDEO_ID_1",
@@ -285,10 +289,10 @@ video_urls = [
 
 for url in video_urls:
     # New session ID for each video = new IP
-    session = random.randint(10000, 99999)
+    session_id = str(uuid.uuid4()).replace("-", "")
 
     ydl_opts = {
-        "proxy": f"http://{username}-{session}:{password}@{endpoint}:60000",
+        "proxy": f"http://{username}-{session_id}:{password}@{endpoint}:60000",
         "format": "best",
         "outtmpl": "downloads/%(title)s.%(ext)s"
     }
@@ -305,13 +309,15 @@ for url in video_urls:
 ```python
 import yt_dlp
 import os
+import uuid
 
 username = os.environ["OXY_WSA_USERNAME"]
 password = os.environ["OXY_WSA_PASSWORD"]
 endpoint = os.environ["OXYLABS_HB_ENDPOINT"]
+session_id = str(uuid.uuid4()).replace("-", "")
 
 ydl_opts = {
-    "proxy": f"http://{username}:{password}@{endpoint}:60000",
+    "proxy": f"http://{username}-{session_id}:{password}@{endpoint}:60000",
     "skip_download": True
 }
 
