@@ -26,4 +26,4 @@ All skills authenticate via environment variables defined in a `.env` file.
 | `OXY_WSA_PASSWORD` | Web Scraper API, Video Data | Web Scraper API password |
 | `OXY_UNBLOCKER_USERNAME` | Unblocking Browser | Unblocking Browser username |
 | `OXY_UNBLOCKER_PASSWORD` | Unblocking Browser | Unblocking Browser password |
-| `OXYLABS_HB_ENDPOINT` | Video Data | Dedicated high-bandwidth proxy endpoint (for video downloads) |
+| `OXY_HB_ENDPOINT` | Video Data | Dedicated high-bandwidth proxy endpoint (for video downloads) |

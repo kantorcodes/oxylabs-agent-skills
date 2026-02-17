@@ -215,30 +215,10 @@ async function getTranscript(videoId) {
 
 ### Command Line
 
-**Basic video download:**
-```bash
-yt-dlp --proxy "http://$OXY_WSA_USERNAME:$OXY_WSA_PASSWORD@$HB_ENDPOINT:60000" \
-  "https://www.youtube.com/watch?v=VIDEO_ID"
-```
-
-**Audio only:**
-```bash
-yt-dlp --proxy "http://$OXY_WSA_USERNAME:$OXY_WSA_PASSWORD@$HB_ENDPOINT:60000" \
-  -x --audio-format mp3 \
-  "https://www.youtube.com/watch?v=VIDEO_ID"
-```
-
-**Best quality:**
-```bash
-yt-dlp --proxy "http://$OXY_WSA_USERNAME:$OXY_WSA_PASSWORD@$HB_ENDPOINT:60000" \
-  -f "bestvideo+bestaudio" \
-  "https://www.youtube.com/watch?v=VIDEO_ID"
-```
-
 **With session rotation:**
 ```bash
 # Each download gets a unique IP
-yt-dlp --proxy "http://$OXY_WSA_USERNAME-$RANDOM:$OXY_WSA_PASSWORD@$HB_ENDPOINT:60000" \
+yt-dlp --proxy $OXY_WSA_USERNAME-$((1 + RANDOM % 100000)):$OXY_WSA_PASSWORD@$OXY_HB_ENDPOINT:60000 \
   "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 

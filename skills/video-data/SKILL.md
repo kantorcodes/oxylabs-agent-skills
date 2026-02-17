@@ -113,12 +113,6 @@ curl -x "http://USERNAME-test:PASSWORD@YOUR_ENDPOINT:60000" \
 
 ### yt-dlp Integration
 
-**Basic download:**
-```bash
-yt-dlp --proxy "http://USERNAME:PASSWORD@YOUR_ENDPOINT:60000" \
-  "https://www.youtube.com/watch?v=VIDEO_ID"
-```
-
 **With session rotation (different IP per download):**
 ```bash
 yt-dlp --proxy "http://USERNAME-session123:PASSWORD@YOUR_ENDPOINT:60000" \
@@ -136,7 +130,7 @@ import random
 
 username = os.environ["OXY_WSA_USERNAME"]
 password = os.environ["OXY_WSA_PASSWORD"]
-endpoint = os.environ["OXYLABS_HB_ENDPOINT"]  # Your dedicated endpoint
+endpoint = os.environ["OXY_HB_ENDPOINT"]  # Your dedicated endpoint
 
 # Random session for unique IP
 session = random.randint(10000, 99999)
