@@ -12,6 +12,12 @@ Official agent skills for Oxylabs products. Each skill provides structured instr
 | Headless Browser | [`skills/headless-browser`](skills/headless-browser/SKILL.md) | Remote headless browsers via CDP (Playwright/Puppeteer) with built-in anti-detection and residential proxies |
 | Video Data | [`skills/video-data`](skills/video-data/SKILL.md) | Video data extraction (metadata, transcripts, search, channels) and high-bandwidth proxy video downloads |
 
+## Installation
+
+```bash
+npx skills add https://github.com/oxylabs/agent-skills.git
+```
+
 ## Configuration
 
 All skills authenticate via environment variables defined in a `.env` file.
