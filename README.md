@@ -14,6 +14,23 @@ Official agent skills for Oxylabs products. Each skill provides structured instr
 
 ## Installation
 
+### Claude Code (plugin marketplace)
+
+Inside Claude Code, run:
+
+```
+/plugin marketplace add oxylabs/agent-skills
+/plugin install oxylabs@oxylabs-agent-skills
+```
+
+This installs all 5 skills as a single plugin. To update later:
+
+```
+/plugin marketplace update oxylabs-agent-skills
+```
+
+### Other agents (generic)
+
 ```bash
 npx skills add https://github.com/oxylabs/agent-skills.git
 ```
