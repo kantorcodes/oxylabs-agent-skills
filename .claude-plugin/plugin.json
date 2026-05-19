@@ -1,0 +1,32 @@
+{
+  "name": "oxylabs",
+  "version": "1.0.0",
+  "description": "Oxylabs agent skills bundle: proxies, Web Scraper API, Web Unblocker, headless browsers, and YouTube video data extraction.",
+  "author": {
+    "name": "Oxylabs",
+    "email": "support@oxylabs.io",
+    "url": "https://oxylabs.io"
+  },
+  "homepage": "https://github.com/oxylabs/agent-skills",
+  "repository": "https://github.com/oxylabs/agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "oxylabs",
+    "proxy",
+    "scraping",
+    "web-scraper",
+    "web-unblocker",
+    "headless-browser",
+    "playwright",
+    "puppeteer",
+    "youtube",
+    "anti-bot"
+  ],
+  "skills": [
+    "./skills/headless-browser",
+    "./skills/proxies",
+    "./skills/video-data",
+    "./skills/web-scraper-api",
+    "./skills/web-unblocker"
+  ]
+}

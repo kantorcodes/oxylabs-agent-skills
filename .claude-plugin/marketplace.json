@@ -1,0 +1,41 @@
+{
+  "name": "oxylabs",
+  "owner": {
+    "name": "Oxylabs",
+    "email": "support@oxylabs.io",
+    "url": "https://oxylabs.io"
+  },
+  "metadata": {
+    "description": "Oxylabs agent skills — proxies, web scraping, headless browsers, and video data extraction.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "oxylabs",
+      "source": ".",
+      "description": "Bundle of Oxylabs skills: residential/mobile/datacenter/ISP proxies, Web Scraper API, Web Unblocker, headless browsers, and YouTube video data extraction.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Oxylabs",
+        "url": "https://oxylabs.io"
+      },
+      "homepage": "https://github.com/oxylabs/agent-skills",
+      "repository": "https://github.com/oxylabs/agent-skills",
+      "license": "MIT",
+      "category": "scraping",
+      "keywords": [
+        "oxylabs",
+        "proxy",
+        "scraping",
+        "web-scraper",
+        "web-unblocker",
+        "headless-browser",
+        "playwright",
+        "puppeteer",
+        "youtube",
+        "anti-bot"
+      ],
+      "strict": false
+    }
+  ]
+}
