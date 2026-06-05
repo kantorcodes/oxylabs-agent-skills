@@ -94,9 +94,9 @@ Shares the residential endpoint but a separate IP pool. Carrier/ASN targeting av
 
 ---
 
-## Datacenter Proxies
+## Shared Datacenter Proxies
 
-High-speed proxies from data centers.
+High-speed rotating proxies from a shared datacenter pool.
 
 | Property | Value |
 |----------|-------|
@@ -104,13 +104,29 @@ High-speed proxies from data centers.
 | Port | `8000` |
 | Auth prefix | `user-` |
 
-**Best for:** high-volume scraping, cost-sensitive jobs, non-protected targets. Dedicated IP variants available (Enterprise / Self-Service).
+**Best for:** high-volume scraping, cost-sensitive jobs, non-protected targets.
 
 ---
 
-## ISP Proxies
+## Dedicated Datacenter Proxies
 
-Datacenter speed with residential-level anonymity (ISP-registered IPs).
+Dedicated datacenter IPs assigned to your account. Not the same as shared `dc.oxylabs.io`.
+
+| Property | Self-Service | Enterprise |
+|----------|-------------|------------|
+| Gateway | `ddc.oxylabs.io` | Direct IP or Proxy Rotator |
+| Auth prefix | `user-` | Username/password (no prefix) |
+| Sticky port | `8001+` (per proxy list) | `60000` (per IP) |
+| Rotation port | `8000` | Proxy Rotator on `60000` |
+| Whitelist port | Dashboard only | `65432` |
+
+Full reference: [dedicated-datacenter.md](dedicated-datacenter.md)
+
+---
+
+## Shared ISP Proxies
+
+Rotating ISP-registered IPs from a shared pool.
 
 | Property | Value |
 |----------|-------|
@@ -118,7 +134,23 @@ Datacenter speed with residential-level anonymity (ISP-registered IPs).
 | Port | `8001` |
 | Auth prefix | `user-` |
 
-**Best for:** e-commerce, SEO monitoring, brand protection, account management. Static IP options. Dedicated ISP variant available.
+**Best for:** e-commerce, SEO monitoring, brand protection where shared rotation is acceptable.
+
+---
+
+## Dedicated ISP Proxies
+
+Dedicated ISP-registered IPs with ASN chosen at purchase.
+
+| Property | Self-Service | Enterprise |
+|----------|-------------|------------|
+| Gateway | `disp.oxylabs.io` | Direct IP or Proxy Rotator |
+| Auth prefix | `user-` | Username/password (no prefix) |
+| Sticky port | `8001+` (per proxy list) | `60000` (per IP) |
+| Rotation port | `8000` (locked to chosen ASN) | Proxy Rotator on `60000` |
+| Whitelist port | Dashboard only | `65432` |
+
+Full reference: [dedicated-isp.md](dedicated-isp.md)
 
 ---
 

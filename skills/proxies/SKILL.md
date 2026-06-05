@@ -1,7 +1,11 @@
 ---
 name: oxylabs-proxies
-description:   Residential, Mobile, Datacenter, and ISP proxy network with geo-targeting by country/city/state, IP rotation, and session persistence. Use this INSTEAD OF direct connections when the user needs to route traffic through proxies, access geo-restricted content, rotate
-  IPs between requests, or maintain anonymous sessions.
+description: >-
+  Oxylabs proxy networks: Residential, Mobile, shared Datacenter/ISP, and
+  Dedicated Datacenter/ISP proxies with geo-targeting, IP rotation, session
+  persistence, and port-based sticky IPs. Use when routing traffic through
+  proxies, building scrapers with proxy auth, rotating or sticky sessions,
+  whitelisting IPs, or accessing geo-restricted content.
 ---
 
 # Oxylabs Proxies
@@ -12,14 +16,21 @@ description:   Residential, Mobile, Datacenter, and ISP proxy network with geo-t
 |------|------|------|----------|
 | Residential | `pr.oxylabs.io` | `7777` | High anonymity, geo-targeting |
 | Mobile | `pr.oxylabs.io` | `7777` | Mobile-specific content, highest trust |
-| Datacenter | `dc.oxylabs.io` | `8000` | Speed, high volume |
-| ISP | `isp.oxylabs.io` | `8001` | Speed + anonymity balance |
+| Datacenter (shared) | `dc.oxylabs.io` | `8000` | Speed, high volume |
+| ISP (shared) | `isp.oxylabs.io` | `8001` | Speed + anonymity balance |
+| Dedicated Datacenter | `ddc.oxylabs.io` | `8001+` / `8000` | Owned IPs, port-based access |
+| Dedicated ISP | `disp.oxylabs.io` | `8001+` / `8000` | Owned ISP IPs, ASN locked |
+
+Shared proxies rotate from a pool. Dedicated proxies use your purchased IPs — see [dedicated-datacenter.md](dedicated-datacenter.md) or [dedicated-isp.md](dedicated-isp.md).
 
 ## Authentication Format
 
 ```
-customer-USERNAME:PASSWORD
+customer-USERNAME:PASSWORD    # Residential, Mobile
+user-USERNAME:PASSWORD          # Shared Datacenter, Shared ISP
 ```
+
+Dedicated proxy auth (Self-Service vs Enterprise) is in [dedicated-datacenter.md](dedicated-datacenter.md) and [dedicated-isp.md](dedicated-isp.md).
 
 With parameters:
 ```
@@ -95,6 +106,7 @@ curl -x "http://pr.oxylabs.io:7777" \
 | Mobile app content | Mobile |
 | Speed & volume | Datacenter |
 | Speed + anonymity | ISP |
+| Owned dedicated IPs | Dedicated Datacenter or Dedicated ISP |
 | Geo-restricted content | Residential with `cc`/`city` |
 
 ## Default Behavior
@@ -103,5 +115,9 @@ curl -x "http://pr.oxylabs.io:7777" \
 - Residential/Mobile share the same endpoint but different IP pools
 - Sessions auto-expire and get new IPs
 
-For detailed examples in Python, Node.js, PHP, and more, see [examples.md](examples.md).
-For proxy type details, see [proxy-types.md](proxy-types.md).
+## Additional Resources
+
+- Shared proxy details (Residential, Mobile, Datacenter, ISP): [proxy-types.md](proxy-types.md)
+- Dedicated Datacenter (Self-Service + Enterprise): [dedicated-datacenter.md](dedicated-datacenter.md)
+- Dedicated ISP (Self-Service + Enterprise): [dedicated-isp.md](dedicated-isp.md)
+- Code examples (all languages): [examples.md](examples.md)

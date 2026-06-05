@@ -1,6 +1,6 @@
 {
   "name": "oxylabs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Oxylabs agent skills bundle: proxies, Web Scraper API, Web Unblocker, headless browsers, and YouTube video data extraction.",
   "author": {
     "name": "Oxylabs",

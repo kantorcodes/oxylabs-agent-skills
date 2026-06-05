@@ -1,5 +1,90 @@
 # Proxy Code Examples
 
+Environment variables used throughout: `OXY_DC_USERNAME`, `OXY_DC_PASSWORD`.
+
+## Dedicated Datacenter (Self-Service)
+
+**Sticky IP (port 8001):**
+```bash
+curl -x ddc.oxylabs.io:8001 -U "user-$OXY_DC_USERNAME:$OXY_DC_PASSWORD" \
+  https://ip.oxylabs.io/location
+```
+
+**Rotation (port 8000) with country filter:**
+```bash
+curl -x ddc.oxylabs.io:8000 \
+  -U "user-$OXY_DC_USERNAME-country-US:$OXY_DC_PASSWORD" \
+  https://ip.oxylabs.io/location
+```
+
+```python
+import os, requests
+
+user, pwd = os.environ["OXY_DC_USERNAME"], os.environ["OXY_DC_PASSWORD"]
+port = 8000  # 8001+ for sticky IP from proxy list
+
+proxies = {
+    "http": f"http://user-{user}:{pwd}@ddc.oxylabs.io:{port}",
+    "https": f"http://user-{user}:{pwd}@ddc.oxylabs.io:{port}",
+}
+print(requests.get("https://ip.oxylabs.io/location", proxies=proxies).json())
+```
+
+## Dedicated ISP (Self-Service)
+
+**Sticky IP (port 8001):**
+```bash
+curl -x disp.oxylabs.io:8001 -U "user-$OXY_DC_USERNAME:$OXY_DC_PASSWORD" \
+  https://ip.oxylabs.io/location
+```
+
+**Rotation (port 8000):**
+```bash
+curl -x disp.oxylabs.io:8000 -U "user-$OXY_DC_USERNAME:$OXY_DC_PASSWORD" \
+  https://ip.oxylabs.io/location
+```
+
+```python
+import os, requests
+
+user, pwd = os.environ["OXY_DC_USERNAME"], os.environ["OXY_DC_PASSWORD"]
+proxies = {
+    "http": f"http://user-{user}:{pwd}@disp.oxylabs.io:8001",
+    "https": f"http://user-{user}:{pwd}@disp.oxylabs.io:8001",
+}
+print(requests.get("https://ip.oxylabs.io/location", proxies=proxies).json())
+```
+
+## Dedicated Enterprise (Direct IP)
+
+```bash
+# Username/password on port 60000
+curl -x 1.2.3.4:60000 -U "$OXY_DC_USERNAME:$OXY_DC_PASSWORD" \
+  https://ip.oxylabs.io/location
+
+# Whitelisted IP on port 65432 (no credentials)
+curl -x 1.2.3.4:65432 https://ip.oxylabs.io/location
+```
+
+**Proxy Rotator with sticky session:**
+```python
+import os, requests
+
+user = os.environ["OXY_DC_USERNAME"]
+pwd = os.environ["OXY_DC_PASSWORD"]
+
+class ProxyAdapter(requests.adapters.HTTPAdapter):
+    def proxy_headers(self, proxy):
+        headers = super().proxy_headers(proxy)
+        headers["Proxy-Server"] = "s10"  # sticky to proxy #10
+        return headers
+
+s = requests.Session()
+s.proxies = {"https": f"http://{user}:{pwd}@vm.oxylabs.io:60000"}
+s.mount("https://", ProxyAdapter())
+print(s.get("https://ip.oxylabs.io/location").text)
+```
+
 ## cURL
 
 **Residential proxy:**
@@ -48,8 +133,8 @@ username = os.environ["OXY_DC_USERNAME"]
 password = os.environ["OXY_DC_PASSWORD"]
 
 proxies = {
-    "http": f"http://customer-{username}:password@pr.oxylabs.io:7777",
-    "https": f"http://customer-{username}:{password}@pr.oxylabs.io:7777"
+    "http": f"http://customer-{username}:{password}@pr.oxylabs.io:7777",
+    "https": f"http://customer-{username}:{password}@pr.oxylabs.io:7777",
 }
 
 response = requests.get("https://ip.oxylabs.io/location", proxies=proxies)
