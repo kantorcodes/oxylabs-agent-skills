@@ -10,7 +10,7 @@ Official agent skills for Oxylabs products. Each skill provides structured instr
 | Web Unblocker | [`skills/web-unblocker`](skills/web-unblocker/SKILL.md) | AI-powered proxy that handles fingerprinting, JavaScript rendering, CAPTCHAs, and improves access reliability automatically |
 | Web Scraper API | [`skills/web-scraper-api`](skills/web-scraper-api/SKILL.md) | Production-grade web scraping with structured JSON parsing for 40+ targets and geo-targeting |
 | Headless Browser | [`skills/headless-browser`](skills/headless-browser/SKILL.md) | Remote headless browsers via CDP (Playwright/Puppeteer) with built-in request handling and residential proxies |
-| Video Data | [`skills/video-data`](skills/video-data/SKILL.md) | Video data extraction (metadata, transcripts, search, channels) and high-bandwidth proxy video downloads |
+| Video Data | [`skills/video-data`](skills/video-data/SKILL.md) | Video data extraction (metadata, subtitles, search, channels) and high-bandwidth proxy video downloads |
 
 ## Product Routing
 
@@ -20,7 +20,7 @@ Official agent skills for Oxylabs products. Each skill provides structured instr
 | Fetch protected pages without browser interactions | Web Unblocker |
 | Get structured data from supported targets, search results, e-commerce pages, or parsed JSON | Web Scraper API |
 | Clicks, forms, screenshots, browser state, or Playwright/Puppeteer automation | Headless Browser |
-| YouTube metadata, transcripts, search, channel data, or video/audio downloads | Video Data |
+| YouTube metadata, subtitles, search, channel data, or video/audio downloads | Video Data |
 
 Start with the most specific product that fits the task. Validate one small request first, confirm auth, status, and expected output, then scale with explicit limits.
 
