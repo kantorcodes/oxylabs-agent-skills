@@ -65,4 +65,4 @@ All skills authenticate via environment variables defined in a `.env` file.
 | `OXY_HB_PASSWORD` | Headless Browser | Headless Browser password |
 | `OXY_HB_ENDPOINT` | Video Data | Dedicated high-bandwidth proxy endpoint (for video downloads) |
 
-Read more on our [agent skills documentation]([url](https://developers.oxylabs.io/products/proxies/residential-proxies/agent-skills/?utm_content=agent-skills&groupid=877))
+Read more on our [agent skills documentation](https://developers.oxylabs.io/products/proxies/residential-proxies/agent-skills/?utm_content=agent-skills&groupid=877)
