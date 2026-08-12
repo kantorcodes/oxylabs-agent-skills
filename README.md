@@ -62,7 +62,7 @@ All skills authenticate via environment variables defined in a `.env` file.
 | `OXY_WSA_USERNAME` | Web Scraper API, Video Data | Web Scraper API username |
 | `OXY_WSA_PASSWORD` | Web Scraper API, Video Data | Web Scraper API password |
 | `OXY_HB_USERNAME` | Headless Browser | Headless Browser username |
-
-Read more on our [agent skills documentation]([url](https://developers.oxylabs.io/products/proxies/residential-proxies/agent-skills/?utm_content=agent-skills&groupid=877))
 | `OXY_HB_PASSWORD` | Headless Browser | Headless Browser password |
 | `OXY_HB_ENDPOINT` | Video Data | Dedicated high-bandwidth proxy endpoint (for video downloads) |
+
+Read more on our [agent skills documentation]([url](https://developers.oxylabs.io/products/proxies/residential-proxies/agent-skills/?utm_content=agent-skills&groupid=877))
