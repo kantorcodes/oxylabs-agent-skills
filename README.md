@@ -1,3 +1,5 @@
+[![Oxylabs promo code](https://github.com/oxylabs/agent-skills/blob/main/Github%20repositories%20banner%20v1%402x.png)](https://x.com/Oxylabs_io)
+
 # Oxylabs Agent Skills
 
 Official agent skills for Oxylabs products. Each skill provides structured instructions that AI agents can use to interact with Oxylabs services.
@@ -23,6 +25,7 @@ Official agent skills for Oxylabs products. Each skill provides structured instr
 | YouTube metadata, subtitles, search, channel data, or video/audio downloads | Video Data |
 
 Start with the most specific product that fits the task. Validate one small request first, confirm auth, status, and expected output, then scale with explicit limits.
+
 
 ## Installation
 
