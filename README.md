@@ -61,7 +61,7 @@ All Oxylabs product skills authenticate via environment variables defined in a `
 | `OXY_RES_USERNAME` | Residential/Mobile Proxies | Residential or Mobile proxy username |
 | `OXY_RES_PASSWORD` | Residential/Mobile Proxies | Residential or Mobile proxy password |
 | `OXY_DC_USERNAME` | Datacenter/ISP Proxies | Datacenter or ISP proxy username |
-| `OXY_DC_PASSWORD` | Datacenter or ISP proxy password |
+| `OXY_DC_PASSWORD` | Datacenter/ISP Proxies | Datacenter or ISP proxy password |
 | `OXYLABS_USERNAME` | Web Unblocker | Web Unblocker username |
 | `OXYLABS_PASSWORD` | Web Unblocker | Web Unblocker password |
 | `OXY_WSA_USERNAME` | Web Scraper API, Video Data | Web Scraper API username |
